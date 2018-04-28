@@ -390,6 +390,13 @@ end
 
 
 function Banana_TargetRaidSymbol(index)
+  for i = 1, 13, 1 do
+  	TargetNearestEnemy();
+  	if GetRaidTargetIndex("target") == index then
+  		return;
+  	end
+  end
+  cleartarget(); --if we're here we didn't find the target so clear the target we ended on for safety
   for i = 1, 40, 1 do
     if Banana_TargetRaidSymbolUnit("raid"..i,index) then
         return;
